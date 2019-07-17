@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -14,18 +16,14 @@ public class Email {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\Srini\\eclipse\\eclipseworkspace\\CDQM_APP\\Practice\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://www.google.com/gmail/");
-		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("input[id='identifierId']")).sendKeys("srini.velupula@gmail.com");
-		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@class='CwaK9']")).click();
-		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("king@heaven5S");
-		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@class='CwaK9']")).click();
-		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@class='T-I J-J5-Ji T-I-KE L3']")).click();
-		Thread.sleep(2000);
 		driver.findElement(By.xpath("//textarea[@id=':r8']")).sendKeys("srini.velupula@gmail.com");
 		driver.findElement(By.xpath("//input[@name='subjectbox']")).sendKeys("Welcome");
 		driver.findElement(By.xpath("//div[@id=':rv']")).sendKeys("Hi Sri"

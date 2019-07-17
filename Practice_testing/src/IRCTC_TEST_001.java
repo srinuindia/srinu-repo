@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 import org.openqa.selenium.Alert;
@@ -30,14 +31,14 @@ public class IRCTC_TEST_001 {
 		ChromeOptions opt = new ChromeOptions();
 		opt.addArguments("--disable-notifications");
 		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://www.irctc.co.in/nget/train-search");
 		Thread.sleep(5000);
 		//Alert alert=driver.switchTo().alert();alert.dismiss();
 		driver.findElement(By.id("loginText")).click();
-		Thread.sleep(10000);
 		driver.findElement(By.id("userId")).sendKeys("sri_161995");
 		driver.findElement(By.name("pwd")).sendKeys("1234");
-		Thread.sleep(5000);
 		/*File src = driver.findElement(By.id("captchaImg")).getScreenshotAs(OutputType.FILE);
 		String path = System.getProperty("user.dir")+"//screenshots//captcha.png";
 		FileHandler.copy(src, new File(path));
@@ -50,7 +51,6 @@ public class IRCTC_TEST_001 {
 		//driver.findElement(By.id("nlpAnswer")).sendKeys(CAPTCHA);
 		//Thread.sleep(5000);
 		driver.findElement(By.id("otpLogin")).click();
-		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[@type='submit']")).submit();
 		//alert.accept();
 	}
