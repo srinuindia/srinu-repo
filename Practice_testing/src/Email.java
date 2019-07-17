@@ -10,7 +10,7 @@ public class Email {
 	public static void main(String[] args) throws InterruptedException {
 		
 
-
+//email login -srinu account
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\Srini\\eclipse\\eclipseworkspace\\CDQM_APP\\Practice\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
